@@ -80,7 +80,7 @@ public class Personas {
 
     @Override
     public String toString() {
-        return "Personas{" + "nombre=" + nombre + ", edad=" + edad + ", id=" + id + ", sexo=" + sexo + ", estado_civil=" + estado_civil + ", m=" + m + '}';
+        return nombre;
     }
     
     
