@@ -197,7 +197,12 @@ public class KimK extends javax.swing.JFrame {
         ta_descrip1 = new javax.swing.JTextArea();
         cb_modificar_objetos = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
+        cb_eliminar_personas = new javax.swing.JComboBox<>();
+        eliminar_personas = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        cb_eliminar_objetos = new javax.swing.JComboBox<>();
+        eliminar_objetos = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1312,28 +1317,85 @@ public class KimK extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar Objetos", jPanel9);
 
+        eliminar_personas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        eliminar_personas.setText("Eliminar");
+        eliminar_personas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminar_personasMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(297, 297, 297)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(eliminar_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_eliminar_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(336, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 665, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(cb_eliminar_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(eliminar_personas, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Eliminar Personas", jPanel10);
+
+        eliminar_objetos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        eliminar_objetos.setText("Eliminar");
+        eliminar_objetos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eliminar_objetosMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(297, 297, 297)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(eliminar_objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_eliminar_objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(336, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(158, 158, 158)
+                .addComponent(cb_eliminar_objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(eliminar_objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(263, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 875, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 665, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel11Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("Eliminar Objetos", jPanel11);
@@ -1400,10 +1462,20 @@ public class KimK extends javax.swing.JFrame {
             lista7.add(oh);
 
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_objetos.getModel();
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_modificar_objetos.getModel();
+            DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_eliminar_objetos.getModel();
             modelo.addElement(o);
             modelo.addElement(z);
             modelo.addElement(r);
             modelo.addElement(oh);
+            modelo2.addElement(o);
+            modelo2.addElement(z);
+            modelo2.addElement(r);
+            modelo2.addElement(oh);
+            modelo3.addElement(o);
+            modelo3.addElement(z);
+            modelo3.addElement(r);
+            modelo3.addElement(oh);
 
             tf_color.setText("");
             ta_descrip.setText("");
@@ -1466,9 +1538,17 @@ public class KimK extends javax.swing.JFrame {
             lista3.add(per);
 
             DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_personas.getModel();
+            DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_modificar_personas.getModel();
+            DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) cb_eliminar_personas.getModel();
             modelo.addElement(p);
             modelo.addElement(f);
             modelo.addElement(per);
+            modelo2.addElement(p);
+            modelo2.addElement(f);
+            modelo2.addElement(per);
+            modelo3.addElement(p);
+            modelo3.addElement(f);
+            modelo3.addElement(per);
 
             tf_nombre.setText("");
             tf_edad.setText("");
@@ -1586,19 +1666,19 @@ public class KimK extends javax.swing.JFrame {
         int sueldo;
 
         try {
-            nombre = tf_nombre.getText();
-            edad = Integer.parseInt(tf_edad.getText());
-            id = tf_id.getText();
-            sexo = tf_sexo.getText();
+            nombre = tf_nombre1.getText();
+            edad = Integer.parseInt(tf_edad1.getText());
+            id = tf_id1.getText();
+            sexo = tf_sexo1.getText();
             estado_civil = tf_estadocivil.getText();
-            rol = tf_rol.getText();
-            trabajo = tf_trabajo.getText();
-            altura = Integer.parseInt(tf_altura.getText());
-            peso = Integer.parseInt(tf_peso.getText());
-            ocupacion = tf_ocupacion.getText();
-            horario_t = tf_horasT.getText();
-            tiempo_trabajando = tf_tiempoT.getText();
-            sueldo = Integer.parseInt(tf_sueldo.getText());
+            rol = tf_rol1.getText();
+            trabajo = tf_trabajo1.getText();
+            altura = Integer.parseInt(tf_altura1.getText());
+            peso = Integer.parseInt(tf_peso1.getText());
+            ocupacion = tf_ocupacion1.getText();
+            horario_t = tf_horasT1.getText();
+            tiempo_trabajando = tf_tiempoT1.getText();
+            sueldo = Integer.parseInt(tf_sueldo1.getText());
 
             DefaultComboBoxModel mode = (DefaultComboBoxModel) cb_modificar_personas.getModel();
             ((Personas) mode.getSelectedItem()).setNombre(nombre);
@@ -1606,29 +1686,29 @@ public class KimK extends javax.swing.JFrame {
             ((Personas) mode.getSelectedItem()).setId(id);
             ((Personas) mode.getSelectedItem()).setSexo(sexo);
             ((Personas) mode.getSelectedItem()).setEstado_civil(estado_civil);
-            ((Familiares) mode.getSelectedItem()).setRol(rol);
-            ((Familiares) mode.getSelectedItem()).setTrabajo(trabajo);
-            ((Familiares) mode.getSelectedItem()).setAltura(altura);
-            ((Familiares) mode.getSelectedItem()).setPeso(peso);
-            ((Personal) mode.getSelectedItem()).setOcupacion(ocupacion);
-            ((Personal) mode.getSelectedItem()).setHorario_t(horario_t);
-            ((Personal) mode.getSelectedItem()).setTiempo_trabajando(tiempo_trabajando);
-            ((Personal) mode.getSelectedItem()).setSueldo(sueldo);
+//            ((Familiares) mode.getSelectedItem()).setRol(rol);
+//            ((Familiares) mode.getSelectedItem()).setTrabajo(trabajo);
+//            ((Familiares) mode.getSelectedItem()).setAltura(altura);
+//            ((Familiares) mode.getSelectedItem()).setPeso(peso);
+//            ((Personal) mode.getSelectedItem()).setOcupacion(ocupacion);
+//            ((Personal) mode.getSelectedItem()).setHorario_t(horario_t);
+//            ((Personal) mode.getSelectedItem()).setTiempo_trabajando(tiempo_trabajando);
+//            ((Personal) mode.getSelectedItem()).setSueldo(sueldo);
             cb_modificar_personas.setModel(mode);
 
-            tf_nombre.setText("");
-            tf_edad.setText("");
-            tf_id.setText("");
-            tf_sexo.setText("");
-            tf_estadocivil.setText("");
-            tf_rol.setText("");
-            tf_trabajo.setText("");
-            tf_altura.setText("");
-            tf_peso.setText("");
-            tf_ocupacion.setText("");
-            tf_horasT.setText("");
-            tf_tiempoT.setText("");
-            tf_sueldo.setText("");
+            tf_nombre1.setText("");
+            tf_edad1.setText("");
+            tf_id1.setText("");
+            tf_sexo1.setText("");
+            tf_estadocivil1.setText("");
+            tf_rol1.setText("");
+            tf_trabajo1.setText("");
+            tf_altura1.setText("");
+            tf_peso1.setText("");
+            tf_ocupacion1.setText("");
+            tf_horasT1.setText("");
+            tf_tiempoT1.setText("");
+            tf_sueldo1.setText("");
 
             JOptionPane.showMessageDialog(this, "Modificación Exitosa");
 
@@ -1684,16 +1764,16 @@ public class KimK extends javax.swing.JFrame {
             ((Objetos) mode.getSelectedItem()).setCalidad(calidad);
             ((Objetos) mode.getSelectedItem()).setPrecio(precio);
             ((Objetos) mode.getSelectedItem()).setDueño(dueño);
-            ((Zapatos) mode.getSelectedItem()).setTalla(talla);
-            ((Zapatos) mode.getSelectedItem()).setTipo_suela(tipo_suela);
-            ((Zapatos) mode.getSelectedItem()).setConfort(confort);
-            ((Ropa) mode.getSelectedItem()).setTalla(talla2);
-            ((Ropa) mode.getSelectedItem()).setMaterial(material);
-            ((Ropa) mode.getSelectedItem()).setPais_elaboracion(pais_elaboracion);
-            ((Objetos_del_hogar) mode.getSelectedItem()).setTiempo_vida(tiempo_vida);
-            ((Objetos_del_hogar) mode.getSelectedItem()).setArea_casa(area_casa);
-            ((Objetos_del_hogar) mode.getSelectedItem()).setInstru_armado(instru_armado);
-            ((Objetos_del_hogar) mode.getSelectedItem()).setFecha_compra(fecha_compra);
+//            ((Zapatos) mode.getSelectedItem()).setTalla(talla);
+//            ((Zapatos) mode.getSelectedItem()).setTipo_suela(tipo_suela);
+//            ((Zapatos) mode.getSelectedItem()).setConfort(confort);
+//            ((Ropa) mode.getSelectedItem()).setTalla(talla2);
+//            ((Ropa) mode.getSelectedItem()).setMaterial(material);
+//            ((Ropa) mode.getSelectedItem()).setPais_elaboracion(pais_elaboracion);
+//            ((Objetos_del_hogar) mode.getSelectedItem()).setTiempo_vida(tiempo_vida);
+//            ((Objetos_del_hogar) mode.getSelectedItem()).setArea_casa(area_casa);
+//            ((Objetos_del_hogar) mode.getSelectedItem()).setInstru_armado(instru_armado);
+//            ((Objetos_del_hogar) mode.getSelectedItem()).setFecha_compra(fecha_compra);
             cb_modificar_objetos.setModel(mode);
 
             tf_color.setText("");
@@ -1721,6 +1801,34 @@ public class KimK extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ocurrio un error");
         }
     }//GEN-LAST:event_Modificar_objetosMouseClicked
+
+    private void eliminar_personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminar_personasMouseClicked
+        DefaultComboBoxModel model = (DefaultComboBoxModel) cb_personas.getModel();
+        model.removeElementAt(cb_personas.getSelectedIndex());
+        cb_personas.setModel(model);
+
+        DefaultComboBoxModel mode = (DefaultComboBoxModel) cb_modificar_personas.getModel();
+        mode.removeElementAt(cb_eliminar_personas.getSelectedIndex());
+        cb_modificar_personas.setModel(mode);
+
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_eliminar_personas.getModel();
+        modelo.removeElementAt(cb_eliminar_personas.getSelectedIndex());
+        cb_eliminar_personas.setModel(modelo);
+    }//GEN-LAST:event_eliminar_personasMouseClicked
+
+    private void eliminar_objetosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eliminar_objetosMouseClicked
+        DefaultComboBoxModel model2 = (DefaultComboBoxModel) cb_objetos.getModel();
+        model2.removeElementAt(cb_objetos.getSelectedIndex());
+        cb_objetos.setModel(model2);
+
+        DefaultComboBoxModel mode2 = (DefaultComboBoxModel) cb_modificar_objetos.getModel();
+        mode2.removeElementAt(cb_eliminar_objetos.getSelectedIndex());
+        cb_modificar_objetos.setModel(mode2);
+
+        DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_eliminar_objetos.getModel();
+        modelo2.removeElementAt(cb_eliminar_objetos.getSelectedIndex());
+        cb_eliminar_objetos.setModel(modelo2);
+    }//GEN-LAST:event_eliminar_objetosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1762,10 +1870,14 @@ public class KimK extends javax.swing.JFrame {
     private javax.swing.JButton Agregar_Personas;
     private javax.swing.JButton Modificar_objetos;
     private javax.swing.JButton Modificar_personas;
+    private javax.swing.JComboBox<String> cb_eliminar_objetos;
+    private javax.swing.JComboBox<String> cb_eliminar_personas;
     private javax.swing.JComboBox<String> cb_modificar_objetos;
     private javax.swing.JComboBox<String> cb_modificar_personas;
     private javax.swing.JComboBox<String> cb_objetos;
     private javax.swing.JComboBox<String> cb_personas;
+    private javax.swing.JButton eliminar_objetos;
+    private javax.swing.JButton eliminar_personas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1843,6 +1955,7 @@ public class KimK extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
