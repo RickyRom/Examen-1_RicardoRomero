@@ -21,6 +21,10 @@ public class KimK extends javax.swing.JFrame {
      */
     public KimK() {
         initComponents();
+        this.Login.pack();
+        this.Login.setLocationRelativeTo(this);
+        this.Login.setVisible(true);
+        this.setVisible(false);
     }
 
     /**
@@ -2150,5 +2154,48 @@ ArrayList<Personas> lista = new ArrayList();
     ArrayList<Zapatos> lista5 = new ArrayList();
     ArrayList<Ropa> lista6 = new ArrayList();
     ArrayList<Objetos_del_hogar> lista7 = new ArrayList();
-    String u = "rromero", p = "1234";
+    String u = "kimk", p = "1234";
+    
+    
+    public static String cifradoCesar(String texto, int codigo) {
+        StringBuilder cifrado = new StringBuilder();
+        codigo = codigo % 26;
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) >= 'a' && texto.charAt(i) <= 'z') {
+                if ((texto.charAt(i) + codigo) > 'z') {
+                    cifrado.append((char) (texto.charAt(i) + codigo - 26));
+                } else {
+                    cifrado.append((char) (texto.charAt(i) + codigo));
+                }
+            } else if (texto.charAt(i) >= 'A' && texto.charAt(i) <= 'Z') {
+                if ((texto.charAt(i) + codigo) > 'Z') {
+                    cifrado.append((char) (texto.charAt(i) + codigo - 26));
+                } else {
+                    cifrado.append((char) (texto.charAt(i) + codigo));
+                }
+            }
+        }
+        return cifrado.toString();
+    }
+    
+    public static String descifradoCesar(String texto, int codigo) {
+        StringBuilder cifrado = new StringBuilder();
+        codigo = codigo % 26;
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) >= 'a' && texto.charAt(i) <= 'z') {
+                if ((texto.charAt(i) - codigo) < 'a') {
+                    cifrado.append((char) (texto.charAt(i) - codigo + 26));
+                } else {
+                    cifrado.append((char) (texto.charAt(i) - codigo));
+                }
+            } else if (texto.charAt(i) >= 'A' && texto.charAt(i) <= 'Z') {
+                if ((texto.charAt(i) - codigo) < 'A') {
+                    cifrado.append((char) (texto.charAt(i) - codigo + 26));
+                } else {
+                    cifrado.append((char) (texto.charAt(i) - codigo));
+                }
+            }
+        }
+        return cifrado.toString();
+    }
 }
