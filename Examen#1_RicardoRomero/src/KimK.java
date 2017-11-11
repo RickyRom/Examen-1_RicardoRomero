@@ -215,6 +215,10 @@ public class KimK extends javax.swing.JFrame {
         jPanel14 = new javax.swing.JPanel();
         cb_eliminar_objetos = new javax.swing.JComboBox<>();
         eliminar_objetos = new javax.swing.JButton();
+        jPanel16 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        ta_mensaje = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1488,6 +1492,44 @@ public class KimK extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Eliminar Objetos", jPanel11);
 
+        ta_mensaje.setColumns(20);
+        ta_mensaje.setRows(5);
+        jScrollPane7.setViewportView(ta_mensaje);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setText("Enviar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(jButton1)
+                .addContainerGap(143, Short.MAX_VALUE))
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(jButton1)))
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Mensajes", jPanel16);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1931,6 +1973,14 @@ public class KimK extends javax.swing.JFrame {
         jTabbedPane1.setVisible(true);
     }//GEN-LAST:event_jb_loginMouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        int codigo = 0;
+        String texto = "abcdefghijk";
+        ta_mensaje.getText();
+        cifradoCesar(texto,codigo);
+        descifradoCesar(texto,codigo);
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1980,6 +2030,7 @@ public class KimK extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_personas;
     private javax.swing.JButton eliminar_objetos;
     private javax.swing.JButton eliminar_personas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2062,6 +2113,7 @@ public class KimK extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2076,6 +2128,7 @@ public class KimK extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_login;
     private javax.swing.JTable jt_objetos;
@@ -2089,6 +2142,7 @@ public class KimK extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_descrip1;
     private javax.swing.JTextArea ta_instruarmado;
     private javax.swing.JTextArea ta_instruarmado1;
+    private javax.swing.JTextArea ta_mensaje;
     private javax.swing.JTextField tf_altura;
     private javax.swing.JTextField tf_altura1;
     private javax.swing.JTextField tf_areacasa;
